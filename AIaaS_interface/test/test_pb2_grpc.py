@@ -16,7 +16,7 @@ class HelloServiceStub(object):
         """
         self.SayHello = channel.unary_unary(
                 '/test.HelloService/SayHello',
-                request_serializer=test_dot_test__pb2.HelloRequest5.SerializeToString,
+                request_serializer=test_dot_test__pb2.HelloRequest.SerializeToString,
                 response_deserializer=test_dot_test__pb2.HelloResponse.FromString,
                 )
 
@@ -35,7 +35,7 @@ def add_HelloServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'SayHello': grpc.unary_unary_rpc_method_handler(
                     servicer.SayHello,
-                    request_deserializer=test_dot_test__pb2.HelloRequest5.FromString,
+                    request_deserializer=test_dot_test__pb2.HelloRequest.FromString,
                     response_serializer=test_dot_test__pb2.HelloResponse.SerializeToString,
             ),
     }
@@ -60,7 +60,7 @@ class HelloService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/test.HelloService/SayHello',
-            test_dot_test__pb2.HelloRequest5.SerializeToString,
+            test_dot_test__pb2.HelloRequest.SerializeToString,
             test_dot_test__pb2.HelloResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

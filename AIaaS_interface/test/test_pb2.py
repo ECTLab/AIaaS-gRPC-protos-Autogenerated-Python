@@ -13,17 +13,17 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0ftest/test.proto\x12\x04test\"\x1d\n\rHelloRequest5\x12\x0c\n\x04name\x18\x01 \x01(\t\" \n\rHelloResponse\x12\x0f\n\x07message\x18\x01 \x01(\t2D\n\x0cHelloService\x12\x34\n\x08SayHello\x12\x13.test.HelloRequest5\x1a\x13.test.HelloResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0ftest/test.proto\x12\x04test\"\x1c\n\x0cHelloRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\" \n\rHelloResponse\x12\x0f\n\x07message\x18\x01 \x01(\t2C\n\x0cHelloService\x12\x33\n\x08SayHello\x12\x12.test.HelloRequest\x1a\x13.test.HelloResponseb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'test.test_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _HELLOREQUEST5._serialized_start=25
-  _HELLOREQUEST5._serialized_end=54
-  _HELLORESPONSE._serialized_start=56
-  _HELLORESPONSE._serialized_end=88
-  _HELLOSERVICE._serialized_start=90
-  _HELLOSERVICE._serialized_end=158
+  _HELLOREQUEST._serialized_start=25
+  _HELLOREQUEST._serialized_end=53
+  _HELLORESPONSE._serialized_start=55
+  _HELLORESPONSE._serialized_end=87
+  _HELLOSERVICE._serialized_start=89
+  _HELLOSERVICE._serialized_end=156
 # @@protoc_insertion_point(module_scope)
