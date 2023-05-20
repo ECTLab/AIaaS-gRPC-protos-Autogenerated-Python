@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from platform_managment import notification_server_pb2 as platform__managment_dot_notification__server__pb2
+from platform_management import notification_server_pb2 as platform__management_dot_notification__server__pb2
 
 
 class NotificationServerStub(object):
@@ -16,8 +16,8 @@ class NotificationServerStub(object):
         """
         self.SendEmail = channel.unary_unary(
                 '/platform_managment.NotificationServer/SendEmail',
-                request_serializer=platform__managment_dot_notification__server__pb2.SendEmailRequest.SerializeToString,
-                response_deserializer=platform__managment_dot_notification__server__pb2.SendEmailResponse.FromString,
+                request_serializer=platform__management_dot_notification__server__pb2.SendEmailRequest.SerializeToString,
+                response_deserializer=platform__management_dot_notification__server__pb2.SendEmailResponse.FromString,
                 )
 
 
@@ -35,8 +35,8 @@ def add_NotificationServerServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'SendEmail': grpc.unary_unary_rpc_method_handler(
                     servicer.SendEmail,
-                    request_deserializer=platform__managment_dot_notification__server__pb2.SendEmailRequest.FromString,
-                    response_serializer=platform__managment_dot_notification__server__pb2.SendEmailResponse.SerializeToString,
+                    request_deserializer=platform__management_dot_notification__server__pb2.SendEmailRequest.FromString,
+                    response_serializer=platform__management_dot_notification__server__pb2.SendEmailResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -60,7 +60,7 @@ class NotificationServer(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/platform_managment.NotificationServer/SendEmail',
-            platform__managment_dot_notification__server__pb2.SendEmailRequest.SerializeToString,
-            platform__managment_dot_notification__server__pb2.SendEmailResponse.FromString,
+            platform__management_dot_notification__server__pb2.SendEmailRequest.SerializeToString,
+            platform__management_dot_notification__server__pb2.SendEmailResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
