@@ -1,16 +1,20 @@
 #!/usr/bin/env python
 
 from setuptools import setup, find_packages
+import subprocess
 
 
 requirements = [
 ]
+
+version = subprocess.check_output(['git', 'describe', '--tags']).strip().decode('utf-8')
 
 with open('README.md') as f:
     readme = f.read()
 
 setup(
     name='AIaaS_interface',
+    version=version,
     author='AIaaS-Backend-Team',
     author_email='m.mahdi.m79@gmail.com',
     packages=find_packages(),
