@@ -2,10 +2,10 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from platform_management import notification_server_pb2 as platform__management_dot_notification__server__pb2
+from platform_management.notification_server import email_pb2 as platform__management_dot_notification__server_dot_email__pb2
 
 
-class NotificationServerStub(object):
+class NotificationEmailStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -15,13 +15,13 @@ class NotificationServerStub(object):
             channel: A grpc.Channel.
         """
         self.SendEmail = channel.unary_unary(
-                '/platform_managment.NotificationServer/SendEmail',
-                request_serializer=platform__management_dot_notification__server__pb2.SendEmailRequest.SerializeToString,
-                response_deserializer=platform__management_dot_notification__server__pb2.SendEmailResponse.FromString,
+                '/notification_server.NotificationEmail/SendEmail',
+                request_serializer=platform__management_dot_notification__server_dot_email__pb2.SendEmailRequest.SerializeToString,
+                response_deserializer=platform__management_dot_notification__server_dot_email__pb2.SendEmailResponse.FromString,
                 )
 
 
-class NotificationServerServicer(object):
+class NotificationEmailServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def SendEmail(self, request, context):
@@ -31,21 +31,21 @@ class NotificationServerServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_NotificationServerServicer_to_server(servicer, server):
+def add_NotificationEmailServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'SendEmail': grpc.unary_unary_rpc_method_handler(
                     servicer.SendEmail,
-                    request_deserializer=platform__management_dot_notification__server__pb2.SendEmailRequest.FromString,
-                    response_serializer=platform__management_dot_notification__server__pb2.SendEmailResponse.SerializeToString,
+                    request_deserializer=platform__management_dot_notification__server_dot_email__pb2.SendEmailRequest.FromString,
+                    response_serializer=platform__management_dot_notification__server_dot_email__pb2.SendEmailResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'platform_managment.NotificationServer', rpc_method_handlers)
+            'notification_server.NotificationEmail', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class NotificationServer(object):
+class NotificationEmail(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -59,8 +59,8 @@ class NotificationServer(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/platform_managment.NotificationServer/SendEmail',
-            platform__management_dot_notification__server__pb2.SendEmailRequest.SerializeToString,
-            platform__management_dot_notification__server__pb2.SendEmailResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/notification_server.NotificationEmail/SendEmail',
+            platform__management_dot_notification__server_dot_email__pb2.SendEmailRequest.SerializeToString,
+            platform__management_dot_notification__server_dot_email__pb2.SendEmailResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
