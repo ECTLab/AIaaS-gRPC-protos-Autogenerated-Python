@@ -31,8 +31,8 @@ class OnlinePaymentResponse(_message.Message):
 class VerifyOnlinePaymentRequest(_message.Message):
     __slots__ = ["track_id"]
     TRACK_ID_FIELD_NUMBER: _ClassVar[int]
-    track_id: str
-    def __init__(self, track_id: _Optional[str] = ...) -> None: ...
+    track_id: int
+    def __init__(self, track_id: _Optional[int] = ...) -> None: ...
 
 class VerifyOnlinePaymentResponse(_message.Message):
     __slots__ = ["was_successful"]
