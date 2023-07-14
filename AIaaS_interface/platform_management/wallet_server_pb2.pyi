@@ -64,18 +64,18 @@ class OnlinePaymentResponse(_message.Message):
     def __init__(self, online_payment_url: _Optional[str] = ...) -> None: ...
 
 class Transaction(_message.Message):
-    __slots__ = ["ai_model_name", "amount", "create_at", "kind", "status"]
+    __slots__ = ["ai_model_name", "amount", "created_at", "kind", "status"]
     AI_MODEL_NAME_FIELD_NUMBER: _ClassVar[int]
     AMOUNT_FIELD_NUMBER: _ClassVar[int]
-    CREATE_AT_FIELD_NUMBER: _ClassVar[int]
+    CREATED_AT_FIELD_NUMBER: _ClassVar[int]
     KIND_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
     ai_model_name: str
     amount: int
-    create_at: _timestamp_pb2.Timestamp
+    created_at: _timestamp_pb2.Timestamp
     kind: TransactionKind
     status: TransactionStatus
-    def __init__(self, amount: _Optional[int] = ..., create_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., kind: _Optional[_Union[TransactionKind, str]] = ..., status: _Optional[_Union[TransactionStatus, str]] = ..., ai_model_name: _Optional[str] = ...) -> None: ...
+    def __init__(self, amount: _Optional[int] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., kind: _Optional[_Union[TransactionKind, str]] = ..., status: _Optional[_Union[TransactionStatus, str]] = ..., ai_model_name: _Optional[str] = ...) -> None: ...
 
 class VerifyOnlinePaymentRequest(_message.Message):
     __slots__ = ["track_id"]
