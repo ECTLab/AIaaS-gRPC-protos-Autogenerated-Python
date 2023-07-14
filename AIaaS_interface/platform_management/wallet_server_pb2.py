@@ -11,31 +11,42 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'platform_management/wallet_server.proto\x12\rwallet_server\")\n\x16\x43reateNewWalletRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\"\x19\n\x17\x43reateNewWalletResponse\"7\n\x14OnlinePaymentRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\x12\x0e\n\x06\x61mount\x18\x02 \x01(\x03\"3\n\x15OnlinePaymentResponse\x12\x1a\n\x12online_payment_url\x18\x01 \x01(\t\".\n\x1aVerifyOnlinePaymentRequest\x12\x10\n\x08track_id\x18\x01 \x01(\x03\"5\n\x1bVerifyOnlinePaymentResponse\x12\x16\n\x0ewas_successful\x18\x01 \x01(\x08\"*\n\x17GetWalletBalanceRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\"+\n\x18GetWalletBalanceResponse\x12\x0f\n\x07\x62\x61lance\x18\x01 \x01(\x03\x32\x99\x03\n\x06Wallet\x12`\n\x0f\x43reateNewWallet\x12%.wallet_server.CreateNewWalletRequest\x1a&.wallet_server.CreateNewWalletResponse\x12Z\n\rOnlinePayment\x12#.wallet_server.OnlinePaymentRequest\x1a$.wallet_server.OnlinePaymentResponse\x12l\n\x13VerifyOnlinePayment\x12).wallet_server.VerifyOnlinePaymentRequest\x1a*.wallet_server.VerifyOnlinePaymentResponse\x12\x63\n\x10GetWalletBalance\x12&.wallet_server.GetWalletBalanceRequest\x1a\'.wallet_server.GetWalletBalanceResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'platform_management/wallet_server.proto\x12\rwallet_server\x1a\x1fgoogle/protobuf/timestamp.proto\")\n\x16\x43reateNewWalletRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\"\x19\n\x17\x43reateNewWalletResponse\"7\n\x14OnlinePaymentRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\x12\x0e\n\x06\x61mount\x18\x02 \x01(\x03\"3\n\x15OnlinePaymentResponse\x12\x1a\n\x12online_payment_url\x18\x01 \x01(\t\".\n\x1aVerifyOnlinePaymentRequest\x12\x10\n\x08track_id\x18\x01 \x01(\x03\"5\n\x1bVerifyOnlinePaymentResponse\x12\x16\n\x0ewas_successful\x18\x01 \x01(\x08\"*\n\x17GetWalletBalanceRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\"+\n\x18GetWalletBalanceResponse\x12\x0f\n\x07\x62\x61lance\x18\x01 \x01(\x03\"\xc3\x01\n\x0bTransaction\x12\x0e\n\x06\x61mount\x18\x01 \x01(\x03\x12-\n\tcreate_at\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x04kind\x18\x03 \x01(\x0e\x32\x1e.wallet_server.TransactionKind\x12\x30\n\x06status\x18\x04 \x01(\x0e\x32 .wallet_server.TransactionStatus\x12\x15\n\rai_model_name\x18\x05 \x01(\t\"0\n\x1dGetTransactionsHistoryRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\"R\n\x1eGetTransactionsHistoryResponse\x12\x30\n\x0ctransactions\x18\x01 \x03(\x0b\x32\x1a.wallet_server.Transaction*Q\n\x0fTransactionKind\x12\x10\n\x0cUNKNOWN_KIND\x10\x00\x12\x0b\n\x07\x44\x45POSIT\x10\x01\x12\x0c\n\x08WITHDRAW\x10\x02\x12\x11\n\rAI_MODEL_COST\x10\x03*P\n\x11TransactionStatus\x12\x12\n\x0eUNKNOWN_STATUS\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\x0e\n\nSUCCESSFUL\x10\x02\x12\n\n\x06\x46\x41ILED\x10\x03\x32\x90\x04\n\x06Wallet\x12`\n\x0f\x43reateNewWallet\x12%.wallet_server.CreateNewWalletRequest\x1a&.wallet_server.CreateNewWalletResponse\x12Z\n\rOnlinePayment\x12#.wallet_server.OnlinePaymentRequest\x1a$.wallet_server.OnlinePaymentResponse\x12l\n\x13VerifyOnlinePayment\x12).wallet_server.VerifyOnlinePaymentRequest\x1a*.wallet_server.VerifyOnlinePaymentResponse\x12\x63\n\x10GetWalletBalance\x12&.wallet_server.GetWalletBalanceRequest\x1a\'.wallet_server.GetWalletBalanceResponse\x12u\n\x16GetTransactionsHistory\x12,.wallet_server.GetTransactionsHistoryRequest\x1a-.wallet_server.GetTransactionsHistoryResponseb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'platform_management.wallet_server_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _CREATENEWWALLETREQUEST._serialized_start=58
-  _CREATENEWWALLETREQUEST._serialized_end=99
-  _CREATENEWWALLETRESPONSE._serialized_start=101
-  _CREATENEWWALLETRESPONSE._serialized_end=126
-  _ONLINEPAYMENTREQUEST._serialized_start=128
-  _ONLINEPAYMENTREQUEST._serialized_end=183
-  _ONLINEPAYMENTRESPONSE._serialized_start=185
-  _ONLINEPAYMENTRESPONSE._serialized_end=236
-  _VERIFYONLINEPAYMENTREQUEST._serialized_start=238
-  _VERIFYONLINEPAYMENTREQUEST._serialized_end=284
-  _VERIFYONLINEPAYMENTRESPONSE._serialized_start=286
-  _VERIFYONLINEPAYMENTRESPONSE._serialized_end=339
-  _GETWALLETBALANCEREQUEST._serialized_start=341
-  _GETWALLETBALANCEREQUEST._serialized_end=383
-  _GETWALLETBALANCERESPONSE._serialized_start=385
-  _GETWALLETBALANCERESPONSE._serialized_end=428
-  _WALLET._serialized_start=431
-  _WALLET._serialized_end=840
+  _TRANSACTIONKIND._serialized_start=795
+  _TRANSACTIONKIND._serialized_end=876
+  _TRANSACTIONSTATUS._serialized_start=878
+  _TRANSACTIONSTATUS._serialized_end=958
+  _CREATENEWWALLETREQUEST._serialized_start=91
+  _CREATENEWWALLETREQUEST._serialized_end=132
+  _CREATENEWWALLETRESPONSE._serialized_start=134
+  _CREATENEWWALLETRESPONSE._serialized_end=159
+  _ONLINEPAYMENTREQUEST._serialized_start=161
+  _ONLINEPAYMENTREQUEST._serialized_end=216
+  _ONLINEPAYMENTRESPONSE._serialized_start=218
+  _ONLINEPAYMENTRESPONSE._serialized_end=269
+  _VERIFYONLINEPAYMENTREQUEST._serialized_start=271
+  _VERIFYONLINEPAYMENTREQUEST._serialized_end=317
+  _VERIFYONLINEPAYMENTRESPONSE._serialized_start=319
+  _VERIFYONLINEPAYMENTRESPONSE._serialized_end=372
+  _GETWALLETBALANCEREQUEST._serialized_start=374
+  _GETWALLETBALANCEREQUEST._serialized_end=416
+  _GETWALLETBALANCERESPONSE._serialized_start=418
+  _GETWALLETBALANCERESPONSE._serialized_end=461
+  _TRANSACTION._serialized_start=464
+  _TRANSACTION._serialized_end=659
+  _GETTRANSACTIONSHISTORYREQUEST._serialized_start=661
+  _GETTRANSACTIONSHISTORYREQUEST._serialized_end=709
+  _GETTRANSACTIONSHISTORYRESPONSE._serialized_start=711
+  _GETTRANSACTIONSHISTORYRESPONSE._serialized_end=793
+  _WALLET._serialized_start=961
+  _WALLET._serialized_end=1489
 # @@protoc_insertion_point(module_scope)

@@ -34,6 +34,11 @@ class WalletStub(object):
                 request_serializer=platform__management_dot_wallet__server__pb2.GetWalletBalanceRequest.SerializeToString,
                 response_deserializer=platform__management_dot_wallet__server__pb2.GetWalletBalanceResponse.FromString,
                 )
+        self.GetTransactionsHistory = channel.unary_unary(
+                '/wallet_server.Wallet/GetTransactionsHistory',
+                request_serializer=platform__management_dot_wallet__server__pb2.GetTransactionsHistoryRequest.SerializeToString,
+                response_deserializer=platform__management_dot_wallet__server__pb2.GetTransactionsHistoryResponse.FromString,
+                )
 
 
 class WalletServicer(object):
@@ -63,6 +68,12 @@ class WalletServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetTransactionsHistory(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_WalletServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -85,6 +96,11 @@ def add_WalletServicer_to_server(servicer, server):
                     servicer.GetWalletBalance,
                     request_deserializer=platform__management_dot_wallet__server__pb2.GetWalletBalanceRequest.FromString,
                     response_serializer=platform__management_dot_wallet__server__pb2.GetWalletBalanceResponse.SerializeToString,
+            ),
+            'GetTransactionsHistory': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetTransactionsHistory,
+                    request_deserializer=platform__management_dot_wallet__server__pb2.GetTransactionsHistoryRequest.FromString,
+                    response_serializer=platform__management_dot_wallet__server__pb2.GetTransactionsHistoryResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -161,5 +177,22 @@ class Wallet(object):
         return grpc.experimental.unary_unary(request, target, '/wallet_server.Wallet/GetWalletBalance',
             platform__management_dot_wallet__server__pb2.GetWalletBalanceRequest.SerializeToString,
             platform__management_dot_wallet__server__pb2.GetWalletBalanceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetTransactionsHistory(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wallet_server.Wallet/GetTransactionsHistory',
+            platform__management_dot_wallet__server__pb2.GetTransactionsHistoryRequest.SerializeToString,
+            platform__management_dot_wallet__server__pb2.GetTransactionsHistoryResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
