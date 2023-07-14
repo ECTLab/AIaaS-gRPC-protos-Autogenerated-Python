@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'platform_management/wallet_server.proto\x12\rwallet_server\")\n\x16\x43reateNewWalletRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\"\x19\n\x17\x43reateNewWalletResponse\"7\n\x14OnlinePaymentRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\x12\x0e\n\x06\x61mount\x18\x02 \x01(\x05\"3\n\x15OnlinePaymentResponse\x12\x1a\n\x12online_payment_url\x18\x01 \x01(\t\".\n\x1aVerifyOnlinePaymentRequest\x12\x10\n\x08track_id\x18\x01 \x01(\x03\"5\n\x1bVerifyOnlinePaymentResponse\x12\x16\n\x0ewas_successful\x18\x01 \x01(\x08\x32\xb4\x02\n\x06Wallet\x12`\n\x0f\x43reateNewWallet\x12%.wallet_server.CreateNewWalletRequest\x1a&.wallet_server.CreateNewWalletResponse\x12Z\n\rOnlinePayment\x12#.wallet_server.OnlinePaymentRequest\x1a$.wallet_server.OnlinePaymentResponse\x12l\n\x13VerifyOnlinePayment\x12).wallet_server.VerifyOnlinePaymentRequest\x1a*.wallet_server.VerifyOnlinePaymentResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'platform_management/wallet_server.proto\x12\rwallet_server\")\n\x16\x43reateNewWalletRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\"\x19\n\x17\x43reateNewWalletResponse\"7\n\x14OnlinePaymentRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\x12\x0e\n\x06\x61mount\x18\x02 \x01(\x03\"3\n\x15OnlinePaymentResponse\x12\x1a\n\x12online_payment_url\x18\x01 \x01(\t\".\n\x1aVerifyOnlinePaymentRequest\x12\x10\n\x08track_id\x18\x01 \x01(\x03\"5\n\x1bVerifyOnlinePaymentResponse\x12\x16\n\x0ewas_successful\x18\x01 \x01(\x08\"*\n\x17GetWalletBalanceRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\x05\"+\n\x18GetWalletBalanceResponse\x12\x0f\n\x07\x62\x61lance\x18\x01 \x01(\x03\x32\x99\x03\n\x06Wallet\x12`\n\x0f\x43reateNewWallet\x12%.wallet_server.CreateNewWalletRequest\x1a&.wallet_server.CreateNewWalletResponse\x12Z\n\rOnlinePayment\x12#.wallet_server.OnlinePaymentRequest\x1a$.wallet_server.OnlinePaymentResponse\x12l\n\x13VerifyOnlinePayment\x12).wallet_server.VerifyOnlinePaymentRequest\x1a*.wallet_server.VerifyOnlinePaymentResponse\x12\x63\n\x10GetWalletBalance\x12&.wallet_server.GetWalletBalanceRequest\x1a\'.wallet_server.GetWalletBalanceResponseb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'platform_management.wallet_server_pb2', globals())
@@ -32,6 +32,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _VERIFYONLINEPAYMENTREQUEST._serialized_end=284
   _VERIFYONLINEPAYMENTRESPONSE._serialized_start=286
   _VERIFYONLINEPAYMENTRESPONSE._serialized_end=339
-  _WALLET._serialized_start=342
-  _WALLET._serialized_end=650
+  _GETWALLETBALANCEREQUEST._serialized_start=341
+  _GETWALLETBALANCEREQUEST._serialized_end=383
+  _GETWALLETBALANCERESPONSE._serialized_start=385
+  _GETWALLETBALANCERESPONSE._serialized_end=428
+  _WALLET._serialized_start=431
+  _WALLET._serialized_end=840
 # @@protoc_insertion_point(module_scope)

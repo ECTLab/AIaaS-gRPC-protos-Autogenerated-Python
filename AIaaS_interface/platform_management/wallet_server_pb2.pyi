@@ -14,6 +14,18 @@ class CreateNewWalletResponse(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class GetWalletBalanceRequest(_message.Message):
+    __slots__ = ["user_id"]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    user_id: int
+    def __init__(self, user_id: _Optional[int] = ...) -> None: ...
+
+class GetWalletBalanceResponse(_message.Message):
+    __slots__ = ["balance"]
+    BALANCE_FIELD_NUMBER: _ClassVar[int]
+    balance: int
+    def __init__(self, balance: _Optional[int] = ...) -> None: ...
+
 class OnlinePaymentRequest(_message.Message):
     __slots__ = ["amount", "user_id"]
     AMOUNT_FIELD_NUMBER: _ClassVar[int]
