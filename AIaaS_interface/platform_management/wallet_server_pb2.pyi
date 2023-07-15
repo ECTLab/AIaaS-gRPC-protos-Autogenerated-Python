@@ -10,6 +10,7 @@ DEPOSIT: TransactionKind
 DESCRIPTOR: _descriptor.FileDescriptor
 FAILED: TransactionStatus
 PENDING: TransactionStatus
+STORAGE_COST: TransactionKind
 SUCCESSFUL: TransactionStatus
 UNKNOWN_KIND: TransactionKind
 UNKNOWN_STATUS: TransactionStatus
