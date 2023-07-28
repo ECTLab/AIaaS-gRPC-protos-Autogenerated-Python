@@ -50,6 +50,18 @@ class GetWalletBalanceResponse(_message.Message):
     balance: int
     def __init__(self, balance: _Optional[int] = ...) -> None: ...
 
+class HasUserWalletRequest(_message.Message):
+    __slots__ = ["user_id"]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    user_id: int
+    def __init__(self, user_id: _Optional[int] = ...) -> None: ...
+
+class HasUserWalletResponse(_message.Message):
+    __slots__ = ["has_wallet"]
+    HAS_WALLET_FIELD_NUMBER: _ClassVar[int]
+    has_wallet: bool
+    def __init__(self, has_wallet: bool = ...) -> None: ...
+
 class OnlinePaymentRequest(_message.Message):
     __slots__ = ["amount", "user_id"]
     AMOUNT_FIELD_NUMBER: _ClassVar[int]

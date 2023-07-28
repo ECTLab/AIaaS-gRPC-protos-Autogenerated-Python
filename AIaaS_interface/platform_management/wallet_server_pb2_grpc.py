@@ -19,6 +19,11 @@ class WalletStub(object):
                 request_serializer=platform__management_dot_wallet__server__pb2.CreateNewWalletRequest.SerializeToString,
                 response_deserializer=platform__management_dot_wallet__server__pb2.CreateNewWalletResponse.FromString,
                 )
+        self.HasUserWallet = channel.unary_unary(
+                '/wallet_server.Wallet/HasUserWallet',
+                request_serializer=platform__management_dot_wallet__server__pb2.HasUserWalletRequest.SerializeToString,
+                response_deserializer=platform__management_dot_wallet__server__pb2.HasUserWalletResponse.FromString,
+                )
         self.OnlinePayment = channel.unary_unary(
                 '/wallet_server.Wallet/OnlinePayment',
                 request_serializer=platform__management_dot_wallet__server__pb2.OnlinePaymentRequest.SerializeToString,
@@ -45,6 +50,12 @@ class WalletServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def CreateNewWallet(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def HasUserWallet(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -81,6 +92,11 @@ def add_WalletServicer_to_server(servicer, server):
                     servicer.CreateNewWallet,
                     request_deserializer=platform__management_dot_wallet__server__pb2.CreateNewWalletRequest.FromString,
                     response_serializer=platform__management_dot_wallet__server__pb2.CreateNewWalletResponse.SerializeToString,
+            ),
+            'HasUserWallet': grpc.unary_unary_rpc_method_handler(
+                    servicer.HasUserWallet,
+                    request_deserializer=platform__management_dot_wallet__server__pb2.HasUserWalletRequest.FromString,
+                    response_serializer=platform__management_dot_wallet__server__pb2.HasUserWalletResponse.SerializeToString,
             ),
             'OnlinePayment': grpc.unary_unary_rpc_method_handler(
                     servicer.OnlinePayment,
@@ -126,6 +142,23 @@ class Wallet(object):
         return grpc.experimental.unary_unary(request, target, '/wallet_server.Wallet/CreateNewWallet',
             platform__management_dot_wallet__server__pb2.CreateNewWalletRequest.SerializeToString,
             platform__management_dot_wallet__server__pb2.CreateNewWalletResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def HasUserWallet(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wallet_server.Wallet/HasUserWallet',
+            platform__management_dot_wallet__server__pb2.HasUserWalletRequest.SerializeToString,
+            platform__management_dot_wallet__server__pb2.HasUserWalletResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
