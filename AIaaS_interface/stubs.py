@@ -1,5 +1,4 @@
 import grpc
-from requests import get as http_get_request
 
 from AIaaS_interface.platform_management.notification_server.email_pb2_grpc import NotificationEmailStub
 from AIaaS_interface.ai_services.recom_server.recom_pb2_grpc import RecomaaSStub
@@ -33,12 +32,5 @@ class Services:
 
 
 def get_stub(config: dict):
-    host = ''
-    try:
-        http_get_request(config['host']+':'+str(config['port']))
-        host = config['host']
-    except:
-        host = '0.0.0.0'
-
-    channel = grpc.insecure_channel(host + ':' + str(config['port']))
+    channel = grpc.insecure_channel(config['host'] + ':' + str(config['port']))
     return config['stub_class'](channel)
