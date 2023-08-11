@@ -30,18 +30,6 @@ class BuyAIModelReqPackageResponse(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
-class CreateNewAIModelCostRequest(_message.Message):
-    __slots__ = ["ai_model_name", "cost_per_req"]
-    AI_MODEL_NAME_FIELD_NUMBER: _ClassVar[int]
-    COST_PER_REQ_FIELD_NUMBER: _ClassVar[int]
-    ai_model_name: str
-    cost_per_req: int
-    def __init__(self, ai_model_name: _Optional[str] = ..., cost_per_req: _Optional[int] = ...) -> None: ...
-
-class CreateNewAIModelCostResponse(_message.Message):
-    __slots__ = []
-    def __init__(self) -> None: ...
-
 class CreateNewWalletRequest(_message.Message):
     __slots__ = ["user_id"]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -120,6 +108,18 @@ class OnlinePaymentResponse(_message.Message):
     ONLINE_PAYMENT_URL_FIELD_NUMBER: _ClassVar[int]
     online_payment_url: str
     def __init__(self, online_payment_url: _Optional[str] = ...) -> None: ...
+
+class SetAIModelCostPerReqRequest(_message.Message):
+    __slots__ = ["ai_model_name", "cost_per_req"]
+    AI_MODEL_NAME_FIELD_NUMBER: _ClassVar[int]
+    COST_PER_REQ_FIELD_NUMBER: _ClassVar[int]
+    ai_model_name: str
+    cost_per_req: int
+    def __init__(self, ai_model_name: _Optional[str] = ..., cost_per_req: _Optional[int] = ...) -> None: ...
+
+class SetAIModelCostPerReqResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
 
 class Transaction(_message.Message):
     __slots__ = ["ai_model_name", "amount", "created_at", "kind", "status"]

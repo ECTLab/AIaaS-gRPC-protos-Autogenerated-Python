@@ -44,10 +44,10 @@ class WalletStub(object):
                 request_serializer=platform__management_dot_wallet__server__pb2.GetTransactionsHistoryRequest.SerializeToString,
                 response_deserializer=platform__management_dot_wallet__server__pb2.GetTransactionsHistoryResponse.FromString,
                 )
-        self.CreateNewAIModelCost = channel.unary_unary(
-                '/wallet_server.Wallet/CreateNewAIModelCost',
-                request_serializer=platform__management_dot_wallet__server__pb2.CreateNewAIModelCostRequest.SerializeToString,
-                response_deserializer=platform__management_dot_wallet__server__pb2.CreateNewAIModelCostResponse.FromString,
+        self.SetAIModelCostPerReq = channel.unary_unary(
+                '/wallet_server.Wallet/SetAIModelCostPerReq',
+                request_serializer=platform__management_dot_wallet__server__pb2.SetAIModelCostPerReqRequest.SerializeToString,
+                response_deserializer=platform__management_dot_wallet__server__pb2.SetAIModelCostPerReqResponse.FromString,
                 )
         self.GetAIModlesCostPerReq = channel.unary_unary(
                 '/wallet_server.Wallet/GetAIModlesCostPerReq',
@@ -100,7 +100,7 @@ class WalletServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def CreateNewAIModelCost(self, request, context):
+    def SetAIModelCostPerReq(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -151,10 +151,10 @@ def add_WalletServicer_to_server(servicer, server):
                     request_deserializer=platform__management_dot_wallet__server__pb2.GetTransactionsHistoryRequest.FromString,
                     response_serializer=platform__management_dot_wallet__server__pb2.GetTransactionsHistoryResponse.SerializeToString,
             ),
-            'CreateNewAIModelCost': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateNewAIModelCost,
-                    request_deserializer=platform__management_dot_wallet__server__pb2.CreateNewAIModelCostRequest.FromString,
-                    response_serializer=platform__management_dot_wallet__server__pb2.CreateNewAIModelCostResponse.SerializeToString,
+            'SetAIModelCostPerReq': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetAIModelCostPerReq,
+                    request_deserializer=platform__management_dot_wallet__server__pb2.SetAIModelCostPerReqRequest.FromString,
+                    response_serializer=platform__management_dot_wallet__server__pb2.SetAIModelCostPerReqResponse.SerializeToString,
             ),
             'GetAIModlesCostPerReq': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAIModlesCostPerReq,
@@ -279,7 +279,7 @@ class Wallet(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def CreateNewAIModelCost(request,
+    def SetAIModelCostPerReq(request,
             target,
             options=(),
             channel_credentials=None,
@@ -289,9 +289,9 @@ class Wallet(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/wallet_server.Wallet/CreateNewAIModelCost',
-            platform__management_dot_wallet__server__pb2.CreateNewAIModelCostRequest.SerializeToString,
-            platform__management_dot_wallet__server__pb2.CreateNewAIModelCostResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/wallet_server.Wallet/SetAIModelCostPerReq',
+            platform__management_dot_wallet__server__pb2.SetAIModelCostPerReqRequest.SerializeToString,
+            platform__management_dot_wallet__server__pb2.SetAIModelCostPerReqResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
