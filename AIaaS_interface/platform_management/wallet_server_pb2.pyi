@@ -16,6 +16,32 @@ UNKNOWN_KIND: TransactionKind
 UNKNOWN_STATUS: TransactionStatus
 WITHDRAW: TransactionKind
 
+class BuyAIModelReqPackageRequest(_message.Message):
+    __slots__ = ["ai_model_name", "req_count", "user_id"]
+    AI_MODEL_NAME_FIELD_NUMBER: _ClassVar[int]
+    REQ_COUNT_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    ai_model_name: str
+    req_count: int
+    user_id: int
+    def __init__(self, user_id: _Optional[int] = ..., ai_model_name: _Optional[str] = ..., req_count: _Optional[int] = ...) -> None: ...
+
+class BuyAIModelReqPackageResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class CreateNewAIModelCostRequest(_message.Message):
+    __slots__ = ["ai_model_name", "cost_per_req"]
+    AI_MODEL_NAME_FIELD_NUMBER: _ClassVar[int]
+    COST_PER_REQ_FIELD_NUMBER: _ClassVar[int]
+    ai_model_name: str
+    cost_per_req: int
+    def __init__(self, ai_model_name: _Optional[str] = ..., cost_per_req: _Optional[int] = ...) -> None: ...
+
+class CreateNewAIModelCostResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
 class CreateNewWalletRequest(_message.Message):
     __slots__ = ["user_id"]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -25,6 +51,25 @@ class CreateNewWalletRequest(_message.Message):
 class CreateNewWalletResponse(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
+
+class GetAIModlesCostPerReqRequest(_message.Message):
+    __slots__ = ["ai_model_names"]
+    AI_MODEL_NAMES_FIELD_NUMBER: _ClassVar[int]
+    ai_model_names: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, ai_model_names: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class GetAIModlesCostPerReqResponse(_message.Message):
+    __slots__ = ["costs"]
+    class CostsEntry(_message.Message):
+        __slots__ = ["key", "value"]
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: int
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[int] = ...) -> None: ...
+    COSTS_FIELD_NUMBER: _ClassVar[int]
+    costs: _containers.ScalarMap[str, int]
+    def __init__(self, costs: _Optional[_Mapping[str, int]] = ...) -> None: ...
 
 class GetTransactionsHistoryRequest(_message.Message):
     __slots__ = ["user_id"]

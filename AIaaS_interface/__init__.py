@@ -10,5 +10,5 @@ output_dir = os.path.join(current_dir, '')
 sys.path.append(output_dir)
 
 import ai_services
-import platform_management
 import stubs
+import platform_management
