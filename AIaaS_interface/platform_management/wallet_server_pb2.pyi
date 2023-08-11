@@ -40,13 +40,13 @@ class CreateNewWalletResponse(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
-class GetAIModlesCostPerReqRequest(_message.Message):
+class GetAIModelsCostPerReqRequest(_message.Message):
     __slots__ = ["ai_model_names"]
     AI_MODEL_NAMES_FIELD_NUMBER: _ClassVar[int]
     ai_model_names: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, ai_model_names: _Optional[_Iterable[str]] = ...) -> None: ...
 
-class GetAIModlesCostPerReqResponse(_message.Message):
+class GetAIModelsCostPerReqResponse(_message.Message):
     __slots__ = ["costs"]
     class CostsEntry(_message.Message):
         __slots__ = ["key", "value"]
