@@ -4,6 +4,7 @@ from AIaaS_interface.platform_management.notification_server.email_pb2_grpc impo
 from AIaaS_interface.ai_services.recom_server.recom_pb2_grpc import RecomaaSStub
 from AIaaS_interface.platform_management.wallet_server_pb2_grpc import WalletStub
 from AIaaS_interface.platform_management.management_server_pb2_grpc import ManagementStub
+from AIaaS_interface.data_storage.storage_pb2_grpc import DataStorageStub
 
 
 
@@ -27,6 +28,11 @@ class Services:
 		"host": "platform_management_grpc_server",
 		"port": 50054,
 		"stub_class": ManagementStub,
+	}
+	DATA_STORAGE = {
+		"host": "data_storage_grpc_server",
+		"port": 50055,
+		"stub_class": DataStorageStub,
 	}
 
 
