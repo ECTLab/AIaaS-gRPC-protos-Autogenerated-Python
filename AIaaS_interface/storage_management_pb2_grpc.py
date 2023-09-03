@@ -2,10 +2,10 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from data_storage import storage_pb2 as data__storage_dot_storage__pb2
+import storage_management_pb2 as storage__management__pb2
 
 
-class DataStorageStub(object):
+class StorageManagementStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -15,88 +15,88 @@ class DataStorageStub(object):
             channel: A grpc.Channel.
         """
         self.RegisterUser = channel.unary_unary(
-                '/data_storage.DataStorage/RegisterUser',
-                request_serializer=data__storage_dot_storage__pb2.RegisterUserRequest.SerializeToString,
-                response_deserializer=data__storage_dot_storage__pb2.RegisterUserResponse.FromString,
+                '/storage_management.StorageManagement/RegisterUser',
+                request_serializer=storage__management__pb2.RegisterUserRequest.SerializeToString,
+                response_deserializer=storage__management__pb2.RegisterUserResponse.FromString,
                 )
         self.DeregisterUser = channel.unary_unary(
-                '/data_storage.DataStorage/DeregisterUser',
-                request_serializer=data__storage_dot_storage__pb2.DeregisterUserRequest.SerializeToString,
-                response_deserializer=data__storage_dot_storage__pb2.DeregisterUserResponse.FromString,
+                '/storage_management.StorageManagement/DeregisterUser',
+                request_serializer=storage__management__pb2.DeregisterUserRequest.SerializeToString,
+                response_deserializer=storage__management__pb2.DeregisterUserResponse.FromString,
                 )
         self.SetVolume = channel.unary_unary(
-                '/data_storage.DataStorage/SetVolume',
-                request_serializer=data__storage_dot_storage__pb2.SetVolumeRequest.SerializeToString,
-                response_deserializer=data__storage_dot_storage__pb2.SetVolumeResponse.FromString,
+                '/storage_management.StorageManagement/SetVolume',
+                request_serializer=storage__management__pb2.SetVolumeRequest.SerializeToString,
+                response_deserializer=storage__management__pb2.SetVolumeResponse.FromString,
                 )
         self.SetSystemVolume = channel.unary_unary(
-                '/data_storage.DataStorage/SetSystemVolume',
-                request_serializer=data__storage_dot_storage__pb2.SetSystemVolumeRequest.SerializeToString,
-                response_deserializer=data__storage_dot_storage__pb2.SetSystemVolumeResponse.FromString,
+                '/storage_management.StorageManagement/SetSystemVolume',
+                request_serializer=storage__management__pb2.SetSystemVolumeRequest.SerializeToString,
+                response_deserializer=storage__management__pb2.SetSystemVolumeResponse.FromString,
                 )
         self.GetVolumeReport = channel.unary_unary(
-                '/data_storage.DataStorage/GetVolumeReport',
-                request_serializer=data__storage_dot_storage__pb2.GetVolumeRequest.SerializeToString,
-                response_deserializer=data__storage_dot_storage__pb2.GetVolumeResponse.FromString,
+                '/storage_management.StorageManagement/GetVolumeReport',
+                request_serializer=storage__management__pb2.GetVolumeRequest.SerializeToString,
+                response_deserializer=storage__management__pb2.GetVolumeResponse.FromString,
                 )
         self.CreateFolder = channel.unary_unary(
-                '/data_storage.DataStorage/CreateFolder',
-                request_serializer=data__storage_dot_storage__pb2.CreateFolderRequest.SerializeToString,
-                response_deserializer=data__storage_dot_storage__pb2.CreateFolderResponse.FromString,
+                '/storage_management.StorageManagement/CreateFolder',
+                request_serializer=storage__management__pb2.CreateFolderRequest.SerializeToString,
+                response_deserializer=storage__management__pb2.CreateFolderResponse.FromString,
                 )
         self.Remove = channel.unary_unary(
-                '/data_storage.DataStorage/Remove',
-                request_serializer=data__storage_dot_storage__pb2.RemoveRequest.SerializeToString,
-                response_deserializer=data__storage_dot_storage__pb2.RemoveResponse.FromString,
+                '/storage_management.StorageManagement/Remove',
+                request_serializer=storage__management__pb2.RemoveRequest.SerializeToString,
+                response_deserializer=storage__management__pb2.RemoveResponse.FromString,
                 )
         self.ForceRemove = channel.unary_unary(
-                '/data_storage.DataStorage/ForceRemove',
-                request_serializer=data__storage_dot_storage__pb2.ForceRemoveRequest.SerializeToString,
-                response_deserializer=data__storage_dot_storage__pb2.ForceRemoveResponse.FromString,
+                '/storage_management.StorageManagement/ForceRemove',
+                request_serializer=storage__management__pb2.ForceRemoveRequest.SerializeToString,
+                response_deserializer=storage__management__pb2.ForceRemoveResponse.FromString,
                 )
         self.EmptyRecycleBin = channel.unary_unary(
-                '/data_storage.DataStorage/EmptyRecycleBin',
-                request_serializer=data__storage_dot_storage__pb2.EmptyRecycleBinRequest.SerializeToString,
-                response_deserializer=data__storage_dot_storage__pb2.EmptyRecycleBinResponse.FromString,
+                '/storage_management.StorageManagement/EmptyRecycleBin',
+                request_serializer=storage__management__pb2.EmptyRecycleBinRequest.SerializeToString,
+                response_deserializer=storage__management__pb2.EmptyRecycleBinResponse.FromString,
                 )
         self.BrowseData = channel.unary_unary(
-                '/data_storage.DataStorage/BrowseData',
-                request_serializer=data__storage_dot_storage__pb2.BrowseDataRequest.SerializeToString,
-                response_deserializer=data__storage_dot_storage__pb2.BrowseDataResponse.FromString,
+                '/storage_management.StorageManagement/BrowseData',
+                request_serializer=storage__management__pb2.BrowseDataRequest.SerializeToString,
+                response_deserializer=storage__management__pb2.BrowseDataResponse.FromString,
                 )
         self.Search = channel.unary_unary(
-                '/data_storage.DataStorage/Search',
-                request_serializer=data__storage_dot_storage__pb2.SearchRequest.SerializeToString,
-                response_deserializer=data__storage_dot_storage__pb2.SearchResponse.FromString,
+                '/storage_management.StorageManagement/Search',
+                request_serializer=storage__management__pb2.SearchRequest.SerializeToString,
+                response_deserializer=storage__management__pb2.SearchResponse.FromString,
                 )
         self.GetSystemicReport = channel.unary_unary(
-                '/data_storage.DataStorage/GetSystemicReport',
-                request_serializer=data__storage_dot_storage__pb2.GetSystemicReportRequest.SerializeToString,
-                response_deserializer=data__storage_dot_storage__pb2.GetSystemicReportResponse.FromString,
+                '/storage_management.StorageManagement/GetSystemicReport',
+                request_serializer=storage__management__pb2.GetSystemicReportRequest.SerializeToString,
+                response_deserializer=storage__management__pb2.GetSystemicReportResponse.FromString,
                 )
         self.Copy = channel.unary_unary(
-                '/data_storage.DataStorage/Copy',
-                request_serializer=data__storage_dot_storage__pb2.CopyRequest.SerializeToString,
-                response_deserializer=data__storage_dot_storage__pb2.CopyResponse.FromString,
+                '/storage_management.StorageManagement/Copy',
+                request_serializer=storage__management__pb2.CopyRequest.SerializeToString,
+                response_deserializer=storage__management__pb2.CopyResponse.FromString,
                 )
         self.Cut = channel.unary_unary(
-                '/data_storage.DataStorage/Cut',
-                request_serializer=data__storage_dot_storage__pb2.CutRequest.SerializeToString,
-                response_deserializer=data__storage_dot_storage__pb2.CutResponse.FromString,
+                '/storage_management.StorageManagement/Cut',
+                request_serializer=storage__management__pb2.CutRequest.SerializeToString,
+                response_deserializer=storage__management__pb2.CutResponse.FromString,
                 )
         self.DownloadFile = channel.unary_stream(
-                '/data_storage.DataStorage/DownloadFile',
-                request_serializer=data__storage_dot_storage__pb2.DownloadFileRequest.SerializeToString,
-                response_deserializer=data__storage_dot_storage__pb2.DownloadFileResponse.FromString,
+                '/storage_management.StorageManagement/DownloadFile',
+                request_serializer=storage__management__pb2.DownloadFileRequest.SerializeToString,
+                response_deserializer=storage__management__pb2.DownloadFileResponse.FromString,
                 )
         self.UploadFile = channel.stream_unary(
-                '/data_storage.DataStorage/UploadFile',
-                request_serializer=data__storage_dot_storage__pb2.UploadFileRequest.SerializeToString,
-                response_deserializer=data__storage_dot_storage__pb2.UploadFileResponse.FromString,
+                '/storage_management.StorageManagement/UploadFile',
+                request_serializer=storage__management__pb2.UploadFileRequest.SerializeToString,
+                response_deserializer=storage__management__pb2.UploadFileResponse.FromString,
                 )
 
 
-class DataStorageServicer(object):
+class StorageManagementServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def RegisterUser(self, request, context):
@@ -297,96 +297,96 @@ class DataStorageServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_DataStorageServicer_to_server(servicer, server):
+def add_StorageManagementServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'RegisterUser': grpc.unary_unary_rpc_method_handler(
                     servicer.RegisterUser,
-                    request_deserializer=data__storage_dot_storage__pb2.RegisterUserRequest.FromString,
-                    response_serializer=data__storage_dot_storage__pb2.RegisterUserResponse.SerializeToString,
+                    request_deserializer=storage__management__pb2.RegisterUserRequest.FromString,
+                    response_serializer=storage__management__pb2.RegisterUserResponse.SerializeToString,
             ),
             'DeregisterUser': grpc.unary_unary_rpc_method_handler(
                     servicer.DeregisterUser,
-                    request_deserializer=data__storage_dot_storage__pb2.DeregisterUserRequest.FromString,
-                    response_serializer=data__storage_dot_storage__pb2.DeregisterUserResponse.SerializeToString,
+                    request_deserializer=storage__management__pb2.DeregisterUserRequest.FromString,
+                    response_serializer=storage__management__pb2.DeregisterUserResponse.SerializeToString,
             ),
             'SetVolume': grpc.unary_unary_rpc_method_handler(
                     servicer.SetVolume,
-                    request_deserializer=data__storage_dot_storage__pb2.SetVolumeRequest.FromString,
-                    response_serializer=data__storage_dot_storage__pb2.SetVolumeResponse.SerializeToString,
+                    request_deserializer=storage__management__pb2.SetVolumeRequest.FromString,
+                    response_serializer=storage__management__pb2.SetVolumeResponse.SerializeToString,
             ),
             'SetSystemVolume': grpc.unary_unary_rpc_method_handler(
                     servicer.SetSystemVolume,
-                    request_deserializer=data__storage_dot_storage__pb2.SetSystemVolumeRequest.FromString,
-                    response_serializer=data__storage_dot_storage__pb2.SetSystemVolumeResponse.SerializeToString,
+                    request_deserializer=storage__management__pb2.SetSystemVolumeRequest.FromString,
+                    response_serializer=storage__management__pb2.SetSystemVolumeResponse.SerializeToString,
             ),
             'GetVolumeReport': grpc.unary_unary_rpc_method_handler(
                     servicer.GetVolumeReport,
-                    request_deserializer=data__storage_dot_storage__pb2.GetVolumeRequest.FromString,
-                    response_serializer=data__storage_dot_storage__pb2.GetVolumeResponse.SerializeToString,
+                    request_deserializer=storage__management__pb2.GetVolumeRequest.FromString,
+                    response_serializer=storage__management__pb2.GetVolumeResponse.SerializeToString,
             ),
             'CreateFolder': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateFolder,
-                    request_deserializer=data__storage_dot_storage__pb2.CreateFolderRequest.FromString,
-                    response_serializer=data__storage_dot_storage__pb2.CreateFolderResponse.SerializeToString,
+                    request_deserializer=storage__management__pb2.CreateFolderRequest.FromString,
+                    response_serializer=storage__management__pb2.CreateFolderResponse.SerializeToString,
             ),
             'Remove': grpc.unary_unary_rpc_method_handler(
                     servicer.Remove,
-                    request_deserializer=data__storage_dot_storage__pb2.RemoveRequest.FromString,
-                    response_serializer=data__storage_dot_storage__pb2.RemoveResponse.SerializeToString,
+                    request_deserializer=storage__management__pb2.RemoveRequest.FromString,
+                    response_serializer=storage__management__pb2.RemoveResponse.SerializeToString,
             ),
             'ForceRemove': grpc.unary_unary_rpc_method_handler(
                     servicer.ForceRemove,
-                    request_deserializer=data__storage_dot_storage__pb2.ForceRemoveRequest.FromString,
-                    response_serializer=data__storage_dot_storage__pb2.ForceRemoveResponse.SerializeToString,
+                    request_deserializer=storage__management__pb2.ForceRemoveRequest.FromString,
+                    response_serializer=storage__management__pb2.ForceRemoveResponse.SerializeToString,
             ),
             'EmptyRecycleBin': grpc.unary_unary_rpc_method_handler(
                     servicer.EmptyRecycleBin,
-                    request_deserializer=data__storage_dot_storage__pb2.EmptyRecycleBinRequest.FromString,
-                    response_serializer=data__storage_dot_storage__pb2.EmptyRecycleBinResponse.SerializeToString,
+                    request_deserializer=storage__management__pb2.EmptyRecycleBinRequest.FromString,
+                    response_serializer=storage__management__pb2.EmptyRecycleBinResponse.SerializeToString,
             ),
             'BrowseData': grpc.unary_unary_rpc_method_handler(
                     servicer.BrowseData,
-                    request_deserializer=data__storage_dot_storage__pb2.BrowseDataRequest.FromString,
-                    response_serializer=data__storage_dot_storage__pb2.BrowseDataResponse.SerializeToString,
+                    request_deserializer=storage__management__pb2.BrowseDataRequest.FromString,
+                    response_serializer=storage__management__pb2.BrowseDataResponse.SerializeToString,
             ),
             'Search': grpc.unary_unary_rpc_method_handler(
                     servicer.Search,
-                    request_deserializer=data__storage_dot_storage__pb2.SearchRequest.FromString,
-                    response_serializer=data__storage_dot_storage__pb2.SearchResponse.SerializeToString,
+                    request_deserializer=storage__management__pb2.SearchRequest.FromString,
+                    response_serializer=storage__management__pb2.SearchResponse.SerializeToString,
             ),
             'GetSystemicReport': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSystemicReport,
-                    request_deserializer=data__storage_dot_storage__pb2.GetSystemicReportRequest.FromString,
-                    response_serializer=data__storage_dot_storage__pb2.GetSystemicReportResponse.SerializeToString,
+                    request_deserializer=storage__management__pb2.GetSystemicReportRequest.FromString,
+                    response_serializer=storage__management__pb2.GetSystemicReportResponse.SerializeToString,
             ),
             'Copy': grpc.unary_unary_rpc_method_handler(
                     servicer.Copy,
-                    request_deserializer=data__storage_dot_storage__pb2.CopyRequest.FromString,
-                    response_serializer=data__storage_dot_storage__pb2.CopyResponse.SerializeToString,
+                    request_deserializer=storage__management__pb2.CopyRequest.FromString,
+                    response_serializer=storage__management__pb2.CopyResponse.SerializeToString,
             ),
             'Cut': grpc.unary_unary_rpc_method_handler(
                     servicer.Cut,
-                    request_deserializer=data__storage_dot_storage__pb2.CutRequest.FromString,
-                    response_serializer=data__storage_dot_storage__pb2.CutResponse.SerializeToString,
+                    request_deserializer=storage__management__pb2.CutRequest.FromString,
+                    response_serializer=storage__management__pb2.CutResponse.SerializeToString,
             ),
             'DownloadFile': grpc.unary_stream_rpc_method_handler(
                     servicer.DownloadFile,
-                    request_deserializer=data__storage_dot_storage__pb2.DownloadFileRequest.FromString,
-                    response_serializer=data__storage_dot_storage__pb2.DownloadFileResponse.SerializeToString,
+                    request_deserializer=storage__management__pb2.DownloadFileRequest.FromString,
+                    response_serializer=storage__management__pb2.DownloadFileResponse.SerializeToString,
             ),
             'UploadFile': grpc.stream_unary_rpc_method_handler(
                     servicer.UploadFile,
-                    request_deserializer=data__storage_dot_storage__pb2.UploadFileRequest.FromString,
-                    response_serializer=data__storage_dot_storage__pb2.UploadFileResponse.SerializeToString,
+                    request_deserializer=storage__management__pb2.UploadFileRequest.FromString,
+                    response_serializer=storage__management__pb2.UploadFileResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'data_storage.DataStorage', rpc_method_handlers)
+            'storage_management.StorageManagement', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class DataStorage(object):
+class StorageManagement(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -400,9 +400,9 @@ class DataStorage(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/data_storage.DataStorage/RegisterUser',
-            data__storage_dot_storage__pb2.RegisterUserRequest.SerializeToString,
-            data__storage_dot_storage__pb2.RegisterUserResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/storage_management.StorageManagement/RegisterUser',
+            storage__management__pb2.RegisterUserRequest.SerializeToString,
+            storage__management__pb2.RegisterUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -417,9 +417,9 @@ class DataStorage(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/data_storage.DataStorage/DeregisterUser',
-            data__storage_dot_storage__pb2.DeregisterUserRequest.SerializeToString,
-            data__storage_dot_storage__pb2.DeregisterUserResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/storage_management.StorageManagement/DeregisterUser',
+            storage__management__pb2.DeregisterUserRequest.SerializeToString,
+            storage__management__pb2.DeregisterUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -434,9 +434,9 @@ class DataStorage(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/data_storage.DataStorage/SetVolume',
-            data__storage_dot_storage__pb2.SetVolumeRequest.SerializeToString,
-            data__storage_dot_storage__pb2.SetVolumeResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/storage_management.StorageManagement/SetVolume',
+            storage__management__pb2.SetVolumeRequest.SerializeToString,
+            storage__management__pb2.SetVolumeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -451,9 +451,9 @@ class DataStorage(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/data_storage.DataStorage/SetSystemVolume',
-            data__storage_dot_storage__pb2.SetSystemVolumeRequest.SerializeToString,
-            data__storage_dot_storage__pb2.SetSystemVolumeResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/storage_management.StorageManagement/SetSystemVolume',
+            storage__management__pb2.SetSystemVolumeRequest.SerializeToString,
+            storage__management__pb2.SetSystemVolumeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -468,9 +468,9 @@ class DataStorage(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/data_storage.DataStorage/GetVolumeReport',
-            data__storage_dot_storage__pb2.GetVolumeRequest.SerializeToString,
-            data__storage_dot_storage__pb2.GetVolumeResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/storage_management.StorageManagement/GetVolumeReport',
+            storage__management__pb2.GetVolumeRequest.SerializeToString,
+            storage__management__pb2.GetVolumeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -485,9 +485,9 @@ class DataStorage(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/data_storage.DataStorage/CreateFolder',
-            data__storage_dot_storage__pb2.CreateFolderRequest.SerializeToString,
-            data__storage_dot_storage__pb2.CreateFolderResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/storage_management.StorageManagement/CreateFolder',
+            storage__management__pb2.CreateFolderRequest.SerializeToString,
+            storage__management__pb2.CreateFolderResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -502,9 +502,9 @@ class DataStorage(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/data_storage.DataStorage/Remove',
-            data__storage_dot_storage__pb2.RemoveRequest.SerializeToString,
-            data__storage_dot_storage__pb2.RemoveResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/storage_management.StorageManagement/Remove',
+            storage__management__pb2.RemoveRequest.SerializeToString,
+            storage__management__pb2.RemoveResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -519,9 +519,9 @@ class DataStorage(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/data_storage.DataStorage/ForceRemove',
-            data__storage_dot_storage__pb2.ForceRemoveRequest.SerializeToString,
-            data__storage_dot_storage__pb2.ForceRemoveResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/storage_management.StorageManagement/ForceRemove',
+            storage__management__pb2.ForceRemoveRequest.SerializeToString,
+            storage__management__pb2.ForceRemoveResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -536,9 +536,9 @@ class DataStorage(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/data_storage.DataStorage/EmptyRecycleBin',
-            data__storage_dot_storage__pb2.EmptyRecycleBinRequest.SerializeToString,
-            data__storage_dot_storage__pb2.EmptyRecycleBinResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/storage_management.StorageManagement/EmptyRecycleBin',
+            storage__management__pb2.EmptyRecycleBinRequest.SerializeToString,
+            storage__management__pb2.EmptyRecycleBinResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -553,9 +553,9 @@ class DataStorage(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/data_storage.DataStorage/BrowseData',
-            data__storage_dot_storage__pb2.BrowseDataRequest.SerializeToString,
-            data__storage_dot_storage__pb2.BrowseDataResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/storage_management.StorageManagement/BrowseData',
+            storage__management__pb2.BrowseDataRequest.SerializeToString,
+            storage__management__pb2.BrowseDataResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -570,9 +570,9 @@ class DataStorage(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/data_storage.DataStorage/Search',
-            data__storage_dot_storage__pb2.SearchRequest.SerializeToString,
-            data__storage_dot_storage__pb2.SearchResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/storage_management.StorageManagement/Search',
+            storage__management__pb2.SearchRequest.SerializeToString,
+            storage__management__pb2.SearchResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -587,9 +587,9 @@ class DataStorage(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/data_storage.DataStorage/GetSystemicReport',
-            data__storage_dot_storage__pb2.GetSystemicReportRequest.SerializeToString,
-            data__storage_dot_storage__pb2.GetSystemicReportResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/storage_management.StorageManagement/GetSystemicReport',
+            storage__management__pb2.GetSystemicReportRequest.SerializeToString,
+            storage__management__pb2.GetSystemicReportResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -604,9 +604,9 @@ class DataStorage(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/data_storage.DataStorage/Copy',
-            data__storage_dot_storage__pb2.CopyRequest.SerializeToString,
-            data__storage_dot_storage__pb2.CopyResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/storage_management.StorageManagement/Copy',
+            storage__management__pb2.CopyRequest.SerializeToString,
+            storage__management__pb2.CopyResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -621,9 +621,9 @@ class DataStorage(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/data_storage.DataStorage/Cut',
-            data__storage_dot_storage__pb2.CutRequest.SerializeToString,
-            data__storage_dot_storage__pb2.CutResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/storage_management.StorageManagement/Cut',
+            storage__management__pb2.CutRequest.SerializeToString,
+            storage__management__pb2.CutResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -638,9 +638,9 @@ class DataStorage(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/data_storage.DataStorage/DownloadFile',
-            data__storage_dot_storage__pb2.DownloadFileRequest.SerializeToString,
-            data__storage_dot_storage__pb2.DownloadFileResponse.FromString,
+        return grpc.experimental.unary_stream(request, target, '/storage_management.StorageManagement/DownloadFile',
+            storage__management__pb2.DownloadFileRequest.SerializeToString,
+            storage__management__pb2.DownloadFileResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -655,8 +655,8 @@ class DataStorage(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/data_storage.DataStorage/UploadFile',
-            data__storage_dot_storage__pb2.UploadFileRequest.SerializeToString,
-            data__storage_dot_storage__pb2.UploadFileResponse.FromString,
+        return grpc.experimental.stream_unary(request_iterator, target, '/storage_management.StorageManagement/UploadFile',
+            storage__management__pb2.UploadFileRequest.SerializeToString,
+            storage__management__pb2.UploadFileResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

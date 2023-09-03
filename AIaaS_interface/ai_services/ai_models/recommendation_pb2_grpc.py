@@ -2,10 +2,10 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from ai_services.recom_server import recom_pb2 as ai__services_dot_recom__server_dot_recom__pb2
+from ai_services.ai_models import recommendation_pb2 as ai__services_dot_ai__models_dot_recommendation__pb2
 
 
-class RecomaaSStub(object):
+class RecommendationStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -15,43 +15,43 @@ class RecomaaSStub(object):
             channel: A grpc.Channel.
         """
         self.CreateModel = channel.unary_unary(
-                '/recom_server.RecomaaS/CreateModel',
-                request_serializer=ai__services_dot_recom__server_dot_recom__pb2.CreateModelRequest.SerializeToString,
-                response_deserializer=ai__services_dot_recom__server_dot_recom__pb2.CreateModelResponse.FromString,
+                '/recommendation.Recommendation/CreateModel',
+                request_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.CreateModelRequest.SerializeToString,
+                response_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.CreateModelResponse.FromString,
                 )
         self.StartColdStart = channel.unary_unary(
-                '/recom_server.RecomaaS/StartColdStart',
-                request_serializer=ai__services_dot_recom__server_dot_recom__pb2.StartColdStartRequest.SerializeToString,
-                response_deserializer=ai__services_dot_recom__server_dot_recom__pb2.StartColdStartResponse.FromString,
+                '/recommendation.Recommendation/StartColdStart',
+                request_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.StartColdStartRequest.SerializeToString,
+                response_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.StartColdStartResponse.FromString,
                 )
         self.StartSimilarItems = channel.unary_unary(
-                '/recom_server.RecomaaS/StartSimilarItems',
-                request_serializer=ai__services_dot_recom__server_dot_recom__pb2.StartSimilarItemsRequest.SerializeToString,
-                response_deserializer=ai__services_dot_recom__server_dot_recom__pb2.StartSimilarItemsResponse.FromString,
+                '/recommendation.Recommendation/StartSimilarItems',
+                request_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.StartSimilarItemsRequest.SerializeToString,
+                response_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.StartSimilarItemsResponse.FromString,
                 )
         self.StartUserSpecific = channel.unary_unary(
-                '/recom_server.RecomaaS/StartUserSpecific',
-                request_serializer=ai__services_dot_recom__server_dot_recom__pb2.StartUserSpecificRequest.SerializeToString,
-                response_deserializer=ai__services_dot_recom__server_dot_recom__pb2.StartUserSpecificResponse.FromString,
+                '/recommendation.Recommendation/StartUserSpecific',
+                request_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.StartUserSpecificRequest.SerializeToString,
+                response_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.StartUserSpecificResponse.FromString,
                 )
         self.ColdStart = channel.unary_unary(
-                '/recom_server.RecomaaS/ColdStart',
-                request_serializer=ai__services_dot_recom__server_dot_recom__pb2.ColdStartRequest.SerializeToString,
-                response_deserializer=ai__services_dot_recom__server_dot_recom__pb2.ColdStartResponse.FromString,
+                '/recommendation.Recommendation/ColdStart',
+                request_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.ColdStartRequest.SerializeToString,
+                response_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.ColdStartResponse.FromString,
                 )
         self.SimilarItems = channel.unary_unary(
-                '/recom_server.RecomaaS/SimilarItems',
-                request_serializer=ai__services_dot_recom__server_dot_recom__pb2.SimilarItemsRequest.SerializeToString,
-                response_deserializer=ai__services_dot_recom__server_dot_recom__pb2.SimilarItemsResponse.FromString,
+                '/recommendation.Recommendation/SimilarItems',
+                request_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.SimilarItemsRequest.SerializeToString,
+                response_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.SimilarItemsResponse.FromString,
                 )
         self.UserSpecific = channel.unary_unary(
-                '/recom_server.RecomaaS/UserSpecific',
-                request_serializer=ai__services_dot_recom__server_dot_recom__pb2.UserSpecificRequest.SerializeToString,
-                response_deserializer=ai__services_dot_recom__server_dot_recom__pb2.UserSpecificResponse.FromString,
+                '/recommendation.Recommendation/UserSpecific',
+                request_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.UserSpecificRequest.SerializeToString,
+                response_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.UserSpecificResponse.FromString,
                 )
 
 
-class RecomaaSServicer(object):
+class RecommendationServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def CreateModel(self, request, context):
@@ -97,51 +97,51 @@ class RecomaaSServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_RecomaaSServicer_to_server(servicer, server):
+def add_RecommendationServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'CreateModel': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateModel,
-                    request_deserializer=ai__services_dot_recom__server_dot_recom__pb2.CreateModelRequest.FromString,
-                    response_serializer=ai__services_dot_recom__server_dot_recom__pb2.CreateModelResponse.SerializeToString,
+                    request_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.CreateModelRequest.FromString,
+                    response_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.CreateModelResponse.SerializeToString,
             ),
             'StartColdStart': grpc.unary_unary_rpc_method_handler(
                     servicer.StartColdStart,
-                    request_deserializer=ai__services_dot_recom__server_dot_recom__pb2.StartColdStartRequest.FromString,
-                    response_serializer=ai__services_dot_recom__server_dot_recom__pb2.StartColdStartResponse.SerializeToString,
+                    request_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.StartColdStartRequest.FromString,
+                    response_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.StartColdStartResponse.SerializeToString,
             ),
             'StartSimilarItems': grpc.unary_unary_rpc_method_handler(
                     servicer.StartSimilarItems,
-                    request_deserializer=ai__services_dot_recom__server_dot_recom__pb2.StartSimilarItemsRequest.FromString,
-                    response_serializer=ai__services_dot_recom__server_dot_recom__pb2.StartSimilarItemsResponse.SerializeToString,
+                    request_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.StartSimilarItemsRequest.FromString,
+                    response_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.StartSimilarItemsResponse.SerializeToString,
             ),
             'StartUserSpecific': grpc.unary_unary_rpc_method_handler(
                     servicer.StartUserSpecific,
-                    request_deserializer=ai__services_dot_recom__server_dot_recom__pb2.StartUserSpecificRequest.FromString,
-                    response_serializer=ai__services_dot_recom__server_dot_recom__pb2.StartUserSpecificResponse.SerializeToString,
+                    request_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.StartUserSpecificRequest.FromString,
+                    response_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.StartUserSpecificResponse.SerializeToString,
             ),
             'ColdStart': grpc.unary_unary_rpc_method_handler(
                     servicer.ColdStart,
-                    request_deserializer=ai__services_dot_recom__server_dot_recom__pb2.ColdStartRequest.FromString,
-                    response_serializer=ai__services_dot_recom__server_dot_recom__pb2.ColdStartResponse.SerializeToString,
+                    request_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.ColdStartRequest.FromString,
+                    response_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.ColdStartResponse.SerializeToString,
             ),
             'SimilarItems': grpc.unary_unary_rpc_method_handler(
                     servicer.SimilarItems,
-                    request_deserializer=ai__services_dot_recom__server_dot_recom__pb2.SimilarItemsRequest.FromString,
-                    response_serializer=ai__services_dot_recom__server_dot_recom__pb2.SimilarItemsResponse.SerializeToString,
+                    request_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.SimilarItemsRequest.FromString,
+                    response_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.SimilarItemsResponse.SerializeToString,
             ),
             'UserSpecific': grpc.unary_unary_rpc_method_handler(
                     servicer.UserSpecific,
-                    request_deserializer=ai__services_dot_recom__server_dot_recom__pb2.UserSpecificRequest.FromString,
-                    response_serializer=ai__services_dot_recom__server_dot_recom__pb2.UserSpecificResponse.SerializeToString,
+                    request_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.UserSpecificRequest.FromString,
+                    response_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.UserSpecificResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'recom_server.RecomaaS', rpc_method_handlers)
+            'recommendation.Recommendation', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class RecomaaS(object):
+class Recommendation(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -155,9 +155,9 @@ class RecomaaS(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/recom_server.RecomaaS/CreateModel',
-            ai__services_dot_recom__server_dot_recom__pb2.CreateModelRequest.SerializeToString,
-            ai__services_dot_recom__server_dot_recom__pb2.CreateModelResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/recommendation.Recommendation/CreateModel',
+            ai__services_dot_ai__models_dot_recommendation__pb2.CreateModelRequest.SerializeToString,
+            ai__services_dot_ai__models_dot_recommendation__pb2.CreateModelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -172,9 +172,9 @@ class RecomaaS(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/recom_server.RecomaaS/StartColdStart',
-            ai__services_dot_recom__server_dot_recom__pb2.StartColdStartRequest.SerializeToString,
-            ai__services_dot_recom__server_dot_recom__pb2.StartColdStartResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/recommendation.Recommendation/StartColdStart',
+            ai__services_dot_ai__models_dot_recommendation__pb2.StartColdStartRequest.SerializeToString,
+            ai__services_dot_ai__models_dot_recommendation__pb2.StartColdStartResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -189,9 +189,9 @@ class RecomaaS(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/recom_server.RecomaaS/StartSimilarItems',
-            ai__services_dot_recom__server_dot_recom__pb2.StartSimilarItemsRequest.SerializeToString,
-            ai__services_dot_recom__server_dot_recom__pb2.StartSimilarItemsResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/recommendation.Recommendation/StartSimilarItems',
+            ai__services_dot_ai__models_dot_recommendation__pb2.StartSimilarItemsRequest.SerializeToString,
+            ai__services_dot_ai__models_dot_recommendation__pb2.StartSimilarItemsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -206,9 +206,9 @@ class RecomaaS(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/recom_server.RecomaaS/StartUserSpecific',
-            ai__services_dot_recom__server_dot_recom__pb2.StartUserSpecificRequest.SerializeToString,
-            ai__services_dot_recom__server_dot_recom__pb2.StartUserSpecificResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/recommendation.Recommendation/StartUserSpecific',
+            ai__services_dot_ai__models_dot_recommendation__pb2.StartUserSpecificRequest.SerializeToString,
+            ai__services_dot_ai__models_dot_recommendation__pb2.StartUserSpecificResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -223,9 +223,9 @@ class RecomaaS(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/recom_server.RecomaaS/ColdStart',
-            ai__services_dot_recom__server_dot_recom__pb2.ColdStartRequest.SerializeToString,
-            ai__services_dot_recom__server_dot_recom__pb2.ColdStartResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/recommendation.Recommendation/ColdStart',
+            ai__services_dot_ai__models_dot_recommendation__pb2.ColdStartRequest.SerializeToString,
+            ai__services_dot_ai__models_dot_recommendation__pb2.ColdStartResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -240,9 +240,9 @@ class RecomaaS(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/recom_server.RecomaaS/SimilarItems',
-            ai__services_dot_recom__server_dot_recom__pb2.SimilarItemsRequest.SerializeToString,
-            ai__services_dot_recom__server_dot_recom__pb2.SimilarItemsResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/recommendation.Recommendation/SimilarItems',
+            ai__services_dot_ai__models_dot_recommendation__pb2.SimilarItemsRequest.SerializeToString,
+            ai__services_dot_ai__models_dot_recommendation__pb2.SimilarItemsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -257,8 +257,8 @@ class RecomaaS(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/recom_server.RecomaaS/UserSpecific',
-            ai__services_dot_recom__server_dot_recom__pb2.UserSpecificRequest.SerializeToString,
-            ai__services_dot_recom__server_dot_recom__pb2.UserSpecificResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/recommendation.Recommendation/UserSpecific',
+            ai__services_dot_ai__models_dot_recommendation__pb2.UserSpecificRequest.SerializeToString,
+            ai__services_dot_ai__models_dot_recommendation__pb2.UserSpecificResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
