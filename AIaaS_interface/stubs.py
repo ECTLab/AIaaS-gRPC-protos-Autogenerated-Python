@@ -29,8 +29,8 @@ class Services:
 		"port": 50054,
 		"stub_class": ManagementStub,
 	}
-	DATA_STORAGE = {
-		"host": "data_storage_grpc_server",
+	STORAGE_MANAGEMENT = {
+		"host": "storage_management_grpc_server",
 		"port": 50055,
 		"stub_class": DataStorageStub,
 	}
