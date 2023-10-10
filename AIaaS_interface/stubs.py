@@ -10,27 +10,27 @@ from AIaaS_interface.storage_management_pb2_grpc import StorageManagementStub
 
 class Services:
 	NOTIFICATION_EMAIL = {
-		"host": "notification_email_grpc_server",
+		"host": "notification-email-grpc-server",
 		"port": 50051,
 		"stub_class": NotificationEmailStub,
 	}
 	RECOMMENDATION = {
-		"host": "recommendation_grpc_server",
+		"host": "recommendation-grpc-server",
 		"port": 50052,
 		"stub_class": RecommendationStub,
 	}
 	WALLET = {
-		"host": "wallet_grpc_server",
+		"host": "wallet-grpc-server",
 		"port": 50053,
 		"stub_class": WalletStub,
 	}
 	MANAGEMENT = {
-		"host": "platform_management_grpc_server",
+		"host": "platform-management-grpc-server",
 		"port": 50054,
 		"stub_class": ManagementStub,
 	}
 	STORAGE_MANAGEMENT = {
-		"host": "storage_management_grpc_server",
+		"host": "storage-management-grpc-server",
 		"port": 50055,
 		"stub_class": StorageManagementStub,
 	}
