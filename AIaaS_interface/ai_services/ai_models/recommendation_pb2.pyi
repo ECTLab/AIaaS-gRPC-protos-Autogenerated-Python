@@ -44,13 +44,37 @@ class CreateModelResponse(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class GetCounterRequest(_message.Message):
+    __slots__ = ["model"]
+    MODEL_FIELD_NUMBER: _ClassVar[int]
+    model: ModelProperties
+    def __init__(self, model: _Optional[_Union[ModelProperties, _Mapping]] = ...) -> None: ...
+
+class GetCounterResponse(_message.Message):
+    __slots__ = ["counter"]
+    COUNTER_FIELD_NUMBER: _ClassVar[int]
+    counter: int
+    def __init__(self, counter: _Optional[int] = ...) -> None: ...
+
 class ModelProperties(_message.Message):
-    __slots__ = ["model_name", "user_id"]
+    __slots__ = ["model_name", "username"]
     MODEL_NAME_FIELD_NUMBER: _ClassVar[int]
-    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    USERNAME_FIELD_NUMBER: _ClassVar[int]
     model_name: str
-    user_id: int
-    def __init__(self, user_id: _Optional[int] = ..., model_name: _Optional[str] = ...) -> None: ...
+    username: str
+    def __init__(self, username: _Optional[str] = ..., model_name: _Optional[str] = ...) -> None: ...
+
+class SetCounterRequest(_message.Message):
+    __slots__ = ["counter", "model"]
+    COUNTER_FIELD_NUMBER: _ClassVar[int]
+    MODEL_FIELD_NUMBER: _ClassVar[int]
+    counter: int
+    model: ModelProperties
+    def __init__(self, model: _Optional[_Union[ModelProperties, _Mapping]] = ..., counter: _Optional[int] = ...) -> None: ...
+
+class SetCounterResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
 
 class SimilarItemsItem(_message.Message):
     __slots__ = ["item_id", "movie_title"]

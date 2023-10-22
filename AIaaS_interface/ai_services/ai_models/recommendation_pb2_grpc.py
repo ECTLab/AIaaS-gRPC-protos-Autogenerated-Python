@@ -49,6 +49,16 @@ class RecommendationStub(object):
                 request_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.UserSpecificRequest.SerializeToString,
                 response_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.UserSpecificResponse.FromString,
                 )
+        self.SetCounter = channel.unary_unary(
+                '/recommendation.Recommendation/SetCounter',
+                request_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.SetCounterRequest.SerializeToString,
+                response_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.SetCounterResponse.FromString,
+                )
+        self.GetCounter = channel.unary_unary(
+                '/recommendation.Recommendation/GetCounter',
+                request_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.GetCounterRequest.SerializeToString,
+                response_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.GetCounterResponse.FromString,
+                )
 
 
 class RecommendationServicer(object):
@@ -96,6 +106,18 @@ class RecommendationServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetCounter(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetCounter(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_RecommendationServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -133,6 +155,16 @@ def add_RecommendationServicer_to_server(servicer, server):
                     servicer.UserSpecific,
                     request_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.UserSpecificRequest.FromString,
                     response_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.UserSpecificResponse.SerializeToString,
+            ),
+            'SetCounter': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetCounter,
+                    request_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.SetCounterRequest.FromString,
+                    response_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.SetCounterResponse.SerializeToString,
+            ),
+            'GetCounter': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetCounter,
+                    request_deserializer=ai__services_dot_ai__models_dot_recommendation__pb2.GetCounterRequest.FromString,
+                    response_serializer=ai__services_dot_ai__models_dot_recommendation__pb2.GetCounterResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -260,5 +292,39 @@ class Recommendation(object):
         return grpc.experimental.unary_unary(request, target, '/recommendation.Recommendation/UserSpecific',
             ai__services_dot_ai__models_dot_recommendation__pb2.UserSpecificRequest.SerializeToString,
             ai__services_dot_ai__models_dot_recommendation__pb2.UserSpecificResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetCounter(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/recommendation.Recommendation/SetCounter',
+            ai__services_dot_ai__models_dot_recommendation__pb2.SetCounterRequest.SerializeToString,
+            ai__services_dot_ai__models_dot_recommendation__pb2.SetCounterResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetCounter(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/recommendation.Recommendation/GetCounter',
+            ai__services_dot_ai__models_dot_recommendation__pb2.GetCounterRequest.SerializeToString,
+            ai__services_dot_ai__models_dot_recommendation__pb2.GetCounterResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
