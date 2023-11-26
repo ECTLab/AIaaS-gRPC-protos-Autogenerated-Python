@@ -9,8 +9,8 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 output_dir = os.path.join(current_dir, '')
 sys.path.append(output_dir)
 
-import storage_management_pb2_grpc
-import storage_management_pb2
-import platform_management
 import ai_services
 import stubs
+import platform_management
+import storage_management_pb2
+import storage_management_pb2_grpc
