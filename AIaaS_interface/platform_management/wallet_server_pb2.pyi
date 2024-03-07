@@ -17,14 +17,16 @@ UNKNOWN_STATUS: TransactionStatus
 WITHDRAW: TransactionKind
 
 class BuyAIModelReqPackageRequest(_message.Message):
-    __slots__ = ["ai_model_name", "req_count", "user_id"]
+    __slots__ = ["ai_model_name", "req_count", "user_id", "username"]
     AI_MODEL_NAME_FIELD_NUMBER: _ClassVar[int]
     REQ_COUNT_FIELD_NUMBER: _ClassVar[int]
+    USERNAME_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ai_model_name: str
     req_count: int
     user_id: int
-    def __init__(self, user_id: _Optional[int] = ..., ai_model_name: _Optional[str] = ..., req_count: _Optional[int] = ...) -> None: ...
+    username: str
+    def __init__(self, user_id: _Optional[int] = ..., username: _Optional[str] = ..., ai_model_name: _Optional[str] = ..., req_count: _Optional[int] = ...) -> None: ...
 
 class BuyAIModelReqPackageResponse(_message.Message):
     __slots__ = []
