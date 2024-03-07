@@ -42,6 +42,20 @@ class CreateNewWalletResponse(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class GetAIModelRequestCountRequest(_message.Message):
+    __slots__ = ["ai_model_name", "username"]
+    AI_MODEL_NAME_FIELD_NUMBER: _ClassVar[int]
+    USERNAME_FIELD_NUMBER: _ClassVar[int]
+    ai_model_name: str
+    username: str
+    def __init__(self, username: _Optional[str] = ..., ai_model_name: _Optional[str] = ...) -> None: ...
+
+class GetAIModelRequestCountResponse(_message.Message):
+    __slots__ = ["req_count"]
+    REQ_COUNT_FIELD_NUMBER: _ClassVar[int]
+    req_count: int
+    def __init__(self, req_count: _Optional[int] = ...) -> None: ...
+
 class GetAIModelsCostPerReqRequest(_message.Message):
     __slots__ = ["ai_model_names"]
     AI_MODEL_NAMES_FIELD_NUMBER: _ClassVar[int]
