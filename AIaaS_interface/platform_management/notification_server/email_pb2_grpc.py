@@ -15,7 +15,7 @@ class NotificationEmailStub(object):
             channel: A grpc.Channel.
         """
         self.SendEmail = channel.unary_unary(
-                '/notification_email.NotificationEmail/SendEmail',
+                '/notification_server.NotificationEmail/SendEmail',
                 request_serializer=platform__management_dot_notification__server_dot_email__pb2.SendEmailRequest.SerializeToString,
                 response_deserializer=platform__management_dot_notification__server_dot_email__pb2.SendEmailResponse.FromString,
                 )
@@ -40,7 +40,7 @@ def add_NotificationEmailServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'notification_email.NotificationEmail', rpc_method_handlers)
+            'notification_server.NotificationEmail', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -59,7 +59,7 @@ class NotificationEmail(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/notification_email.NotificationEmail/SendEmail',
+        return grpc.experimental.unary_unary(request, target, '/notification_server.NotificationEmail/SendEmail',
             platform__management_dot_notification__server_dot_email__pb2.SendEmailRequest.SerializeToString,
             platform__management_dot_notification__server_dot_email__pb2.SendEmailResponse.FromString,
             options, channel_credentials,

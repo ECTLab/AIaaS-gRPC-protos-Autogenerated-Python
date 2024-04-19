@@ -17,12 +17,14 @@ class ColdStartItem(_message.Message):
     def __init__(self, item_id: _Optional[int] = ..., movie_title: _Optional[str] = ..., rate: _Optional[int] = ...) -> None: ...
 
 class ColdStartRequest(_message.Message):
-    __slots__ = ["model", "n"]
+    __slots__ = ["model", "n", "verbose"]
     MODEL_FIELD_NUMBER: _ClassVar[int]
     N_FIELD_NUMBER: _ClassVar[int]
+    VERBOSE_FIELD_NUMBER: _ClassVar[int]
     model: ModelProperties
     n: int
-    def __init__(self, model: _Optional[_Union[ModelProperties, _Mapping]] = ..., n: _Optional[int] = ...) -> None: ...
+    verbose: bool
+    def __init__(self, model: _Optional[_Union[ModelProperties, _Mapping]] = ..., verbose: bool = ..., n: _Optional[int] = ...) -> None: ...
 
 class ColdStartResponse(_message.Message):
     __slots__ = ["items"]
@@ -31,46 +33,24 @@ class ColdStartResponse(_message.Message):
     def __init__(self, items: _Optional[_Iterable[_Union[ColdStartItem, _Mapping]]] = ...) -> None: ...
 
 class CreateModelRequest(_message.Message):
-    __slots__ = ["model"]
+    __slots__ = ["model", "verbose"]
     MODEL_FIELD_NUMBER: _ClassVar[int]
+    VERBOSE_FIELD_NUMBER: _ClassVar[int]
     model: ModelProperties
-    def __init__(self, model: _Optional[_Union[ModelProperties, _Mapping]] = ...) -> None: ...
+    verbose: bool
+    def __init__(self, model: _Optional[_Union[ModelProperties, _Mapping]] = ..., verbose: bool = ...) -> None: ...
 
 class CreateModelResponse(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
-class GetCounterRequest(_message.Message):
-    __slots__ = ["model"]
-    MODEL_FIELD_NUMBER: _ClassVar[int]
-    model: ModelProperties
-    def __init__(self, model: _Optional[_Union[ModelProperties, _Mapping]] = ...) -> None: ...
-
-class GetCounterResponse(_message.Message):
-    __slots__ = ["counter"]
-    COUNTER_FIELD_NUMBER: _ClassVar[int]
-    counter: int
-    def __init__(self, counter: _Optional[int] = ...) -> None: ...
-
 class ModelProperties(_message.Message):
-    __slots__ = ["model_name", "username"]
+    __slots__ = ["model_name", "user_id"]
     MODEL_NAME_FIELD_NUMBER: _ClassVar[int]
-    USERNAME_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
     model_name: str
-    username: str
-    def __init__(self, username: _Optional[str] = ..., model_name: _Optional[str] = ...) -> None: ...
-
-class SetCounterRequest(_message.Message):
-    __slots__ = ["counter", "model"]
-    COUNTER_FIELD_NUMBER: _ClassVar[int]
-    MODEL_FIELD_NUMBER: _ClassVar[int]
-    counter: int
-    model: ModelProperties
-    def __init__(self, model: _Optional[_Union[ModelProperties, _Mapping]] = ..., counter: _Optional[int] = ...) -> None: ...
-
-class SetCounterResponse(_message.Message):
-    __slots__ = []
-    def __init__(self) -> None: ...
+    user_id: int
+    def __init__(self, user_id: _Optional[int] = ..., model_name: _Optional[str] = ...) -> None: ...
 
 class SimilarItemsItem(_message.Message):
     __slots__ = ["item_id", "movie_title"]
@@ -81,14 +61,16 @@ class SimilarItemsItem(_message.Message):
     def __init__(self, item_id: _Optional[int] = ..., movie_title: _Optional[str] = ...) -> None: ...
 
 class SimilarItemsRequest(_message.Message):
-    __slots__ = ["item_name", "model", "n"]
+    __slots__ = ["item_name", "model", "n", "verbose"]
     ITEM_NAME_FIELD_NUMBER: _ClassVar[int]
     MODEL_FIELD_NUMBER: _ClassVar[int]
     N_FIELD_NUMBER: _ClassVar[int]
+    VERBOSE_FIELD_NUMBER: _ClassVar[int]
     item_name: str
     model: ModelProperties
     n: int
-    def __init__(self, model: _Optional[_Union[ModelProperties, _Mapping]] = ..., n: _Optional[int] = ..., item_name: _Optional[str] = ...) -> None: ...
+    verbose: bool
+    def __init__(self, model: _Optional[_Union[ModelProperties, _Mapping]] = ..., verbose: bool = ..., n: _Optional[int] = ..., item_name: _Optional[str] = ...) -> None: ...
 
 class SimilarItemsResponse(_message.Message):
     __slots__ = ["items"]
@@ -97,19 +79,21 @@ class SimilarItemsResponse(_message.Message):
     def __init__(self, items: _Optional[_Iterable[_Union[SimilarItemsItem, _Mapping]]] = ...) -> None: ...
 
 class StartColdStartRequest(_message.Message):
-    __slots__ = ["data", "model"]
+    __slots__ = ["data", "model", "verbose"]
     DATA_FIELD_NUMBER: _ClassVar[int]
     MODEL_FIELD_NUMBER: _ClassVar[int]
+    VERBOSE_FIELD_NUMBER: _ClassVar[int]
     data: dataProperties
     model: ModelProperties
-    def __init__(self, model: _Optional[_Union[ModelProperties, _Mapping]] = ..., data: _Optional[_Union[dataProperties, _Mapping]] = ...) -> None: ...
+    verbose: bool
+    def __init__(self, model: _Optional[_Union[ModelProperties, _Mapping]] = ..., data: _Optional[_Union[dataProperties, _Mapping]] = ..., verbose: bool = ...) -> None: ...
 
 class StartColdStartResponse(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
 class StartSimilarItemsRequest(_message.Message):
-    __slots__ = ["algo", "bsl_options", "data", "k", "min_k", "model", "n", "sim_options"]
+    __slots__ = ["algo", "bsl_options", "data", "k", "min_k", "model", "n", "sim_options", "verbose"]
     ALGO_FIELD_NUMBER: _ClassVar[int]
     BSL_OPTIONS_FIELD_NUMBER: _ClassVar[int]
     DATA_FIELD_NUMBER: _ClassVar[int]
@@ -118,6 +102,7 @@ class StartSimilarItemsRequest(_message.Message):
     MODEL_FIELD_NUMBER: _ClassVar[int]
     N_FIELD_NUMBER: _ClassVar[int]
     SIM_OPTIONS_FIELD_NUMBER: _ClassVar[int]
+    VERBOSE_FIELD_NUMBER: _ClassVar[int]
     algo: str
     bsl_options: _struct_pb2.Struct
     data: dataProperties
@@ -126,25 +111,28 @@ class StartSimilarItemsRequest(_message.Message):
     model: ModelProperties
     n: int
     sim_options: _struct_pb2.Struct
-    def __init__(self, model: _Optional[_Union[ModelProperties, _Mapping]] = ..., data: _Optional[_Union[dataProperties, _Mapping]] = ..., algo: _Optional[str] = ..., k: _Optional[int] = ..., min_k: _Optional[int] = ..., sim_options: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ..., bsl_options: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ..., n: _Optional[int] = ...) -> None: ...
+    verbose: bool
+    def __init__(self, model: _Optional[_Union[ModelProperties, _Mapping]] = ..., data: _Optional[_Union[dataProperties, _Mapping]] = ..., verbose: bool = ..., algo: _Optional[str] = ..., k: _Optional[int] = ..., min_k: _Optional[int] = ..., sim_options: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ..., bsl_options: _Optional[_Union[_struct_pb2.Struct, _Mapping]] = ..., n: _Optional[int] = ...) -> None: ...
 
 class StartSimilarItemsResponse(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
 class StartUserSpecificRequest(_message.Message):
-    __slots__ = ["data", "k", "k_end", "k_start", "model"]
+    __slots__ = ["data", "k", "k_end", "k_start", "model", "verbose"]
     DATA_FIELD_NUMBER: _ClassVar[int]
     K_END_FIELD_NUMBER: _ClassVar[int]
     K_FIELD_NUMBER: _ClassVar[int]
     K_START_FIELD_NUMBER: _ClassVar[int]
     MODEL_FIELD_NUMBER: _ClassVar[int]
+    VERBOSE_FIELD_NUMBER: _ClassVar[int]
     data: dataProperties
     k: int
     k_end: int
     k_start: int
     model: ModelProperties
-    def __init__(self, model: _Optional[_Union[ModelProperties, _Mapping]] = ..., data: _Optional[_Union[dataProperties, _Mapping]] = ..., k: _Optional[int] = ..., k_start: _Optional[int] = ..., k_end: _Optional[int] = ...) -> None: ...
+    verbose: bool
+    def __init__(self, model: _Optional[_Union[ModelProperties, _Mapping]] = ..., data: _Optional[_Union[dataProperties, _Mapping]] = ..., verbose: bool = ..., k: _Optional[int] = ..., k_start: _Optional[int] = ..., k_end: _Optional[int] = ...) -> None: ...
 
 class StartUserSpecificResponse(_message.Message):
     __slots__ = []
@@ -161,14 +149,16 @@ class UserSpecificItem(_message.Message):
     def __init__(self, item_id: _Optional[int] = ..., movie_title: _Optional[str] = ..., rate: _Optional[int] = ...) -> None: ...
 
 class UserSpecificRequest(_message.Message):
-    __slots__ = ["dataset_userid", "model", "n"]
+    __slots__ = ["dataset_userid", "model", "n", "verbose"]
     DATASET_USERID_FIELD_NUMBER: _ClassVar[int]
     MODEL_FIELD_NUMBER: _ClassVar[int]
     N_FIELD_NUMBER: _ClassVar[int]
+    VERBOSE_FIELD_NUMBER: _ClassVar[int]
     dataset_userid: int
     model: ModelProperties
     n: int
-    def __init__(self, model: _Optional[_Union[ModelProperties, _Mapping]] = ..., dataset_userid: _Optional[int] = ..., n: _Optional[int] = ...) -> None: ...
+    verbose: bool
+    def __init__(self, model: _Optional[_Union[ModelProperties, _Mapping]] = ..., verbose: bool = ..., dataset_userid: _Optional[int] = ..., n: _Optional[int] = ...) -> None: ...
 
 class UserSpecificResponse(_message.Message):
     __slots__ = ["items"]
