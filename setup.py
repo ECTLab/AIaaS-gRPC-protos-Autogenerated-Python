@@ -6,7 +6,7 @@ import subprocess
 
 requirements = [
     'google-api-python-client==2.87.0',
-    'grpcio==1.54.2',
+    'grpcio==1.54.3',
 ]
 
 version = subprocess.check_output(['git', 'describe', '--tags']).strip().decode('utf-8')
