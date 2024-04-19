@@ -16,6 +16,22 @@ UNKNOWN_KIND: TransactionKind
 UNKNOWN_STATUS: TransactionStatus
 WITHDRAW: TransactionKind
 
+class BuyAIModelReqPackageRequest(_message.Message):
+    __slots__ = ["ai_model_name", "req_count", "user_id", "username"]
+    AI_MODEL_NAME_FIELD_NUMBER: _ClassVar[int]
+    REQ_COUNT_FIELD_NUMBER: _ClassVar[int]
+    USERNAME_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    ai_model_name: str
+    req_count: int
+    user_id: int
+    username: str
+    def __init__(self, user_id: _Optional[int] = ..., username: _Optional[str] = ..., ai_model_name: _Optional[str] = ..., req_count: _Optional[int] = ...) -> None: ...
+
+class BuyAIModelReqPackageResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
 class CreateNewWalletRequest(_message.Message):
     __slots__ = ["user_id"]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -25,6 +41,39 @@ class CreateNewWalletRequest(_message.Message):
 class CreateNewWalletResponse(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
+
+class GetAIModelRequestCountRequest(_message.Message):
+    __slots__ = ["ai_model_name", "username"]
+    AI_MODEL_NAME_FIELD_NUMBER: _ClassVar[int]
+    USERNAME_FIELD_NUMBER: _ClassVar[int]
+    ai_model_name: str
+    username: str
+    def __init__(self, username: _Optional[str] = ..., ai_model_name: _Optional[str] = ...) -> None: ...
+
+class GetAIModelRequestCountResponse(_message.Message):
+    __slots__ = ["req_count"]
+    REQ_COUNT_FIELD_NUMBER: _ClassVar[int]
+    req_count: int
+    def __init__(self, req_count: _Optional[int] = ...) -> None: ...
+
+class GetAIModelsCostPerReqRequest(_message.Message):
+    __slots__ = ["ai_model_names"]
+    AI_MODEL_NAMES_FIELD_NUMBER: _ClassVar[int]
+    ai_model_names: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, ai_model_names: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class GetAIModelsCostPerReqResponse(_message.Message):
+    __slots__ = ["costs"]
+    class CostsEntry(_message.Message):
+        __slots__ = ["key", "value"]
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: int
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[int] = ...) -> None: ...
+    COSTS_FIELD_NUMBER: _ClassVar[int]
+    costs: _containers.ScalarMap[str, int]
+    def __init__(self, costs: _Optional[_Mapping[str, int]] = ...) -> None: ...
 
 class GetTransactionsHistoryRequest(_message.Message):
     __slots__ = ["user_id"]
@@ -75,6 +124,18 @@ class OnlinePaymentResponse(_message.Message):
     ONLINE_PAYMENT_URL_FIELD_NUMBER: _ClassVar[int]
     online_payment_url: str
     def __init__(self, online_payment_url: _Optional[str] = ...) -> None: ...
+
+class SetAIModelCostPerReqRequest(_message.Message):
+    __slots__ = ["ai_model_name", "cost_per_req"]
+    AI_MODEL_NAME_FIELD_NUMBER: _ClassVar[int]
+    COST_PER_REQ_FIELD_NUMBER: _ClassVar[int]
+    ai_model_name: str
+    cost_per_req: int
+    def __init__(self, ai_model_name: _Optional[str] = ..., cost_per_req: _Optional[int] = ...) -> None: ...
+
+class SetAIModelCostPerReqResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
 
 class Transaction(_message.Message):
     __slots__ = ["ai_model_name", "amount", "created_at", "kind", "status"]

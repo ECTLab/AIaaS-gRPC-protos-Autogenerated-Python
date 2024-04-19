@@ -10,5 +10,7 @@ output_dir = os.path.join(current_dir, '')
 sys.path.append(output_dir)
 
 import platform_management
+import storage_management_pb2
 import stubs
+import storage_management_pb2_grpc
 import ai_services
