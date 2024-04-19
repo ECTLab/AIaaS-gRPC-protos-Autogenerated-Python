@@ -44,6 +44,26 @@ class WalletStub(object):
                 request_serializer=platform__management_dot_wallet__server__pb2.GetTransactionsHistoryRequest.SerializeToString,
                 response_deserializer=platform__management_dot_wallet__server__pb2.GetTransactionsHistoryResponse.FromString,
                 )
+        self.SetAIModelCostPerReq = channel.unary_unary(
+                '/wallet_server.Wallet/SetAIModelCostPerReq',
+                request_serializer=platform__management_dot_wallet__server__pb2.SetAIModelCostPerReqRequest.SerializeToString,
+                response_deserializer=platform__management_dot_wallet__server__pb2.SetAIModelCostPerReqResponse.FromString,
+                )
+        self.GetAIModelsCostPerReq = channel.unary_unary(
+                '/wallet_server.Wallet/GetAIModelsCostPerReq',
+                request_serializer=platform__management_dot_wallet__server__pb2.GetAIModelsCostPerReqRequest.SerializeToString,
+                response_deserializer=platform__management_dot_wallet__server__pb2.GetAIModelsCostPerReqResponse.FromString,
+                )
+        self.BuyAIModelReqPackage = channel.unary_unary(
+                '/wallet_server.Wallet/BuyAIModelReqPackage',
+                request_serializer=platform__management_dot_wallet__server__pb2.BuyAIModelReqPackageRequest.SerializeToString,
+                response_deserializer=platform__management_dot_wallet__server__pb2.BuyAIModelReqPackageResponse.FromString,
+                )
+        self.GetAIModelRequestCount = channel.unary_unary(
+                '/wallet_server.Wallet/GetAIModelRequestCount',
+                request_serializer=platform__management_dot_wallet__server__pb2.GetAIModelRequestCountRequest.SerializeToString,
+                response_deserializer=platform__management_dot_wallet__server__pb2.GetAIModelRequestCountResponse.FromString,
+                )
 
 
 class WalletServicer(object):
@@ -85,6 +105,30 @@ class WalletServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetAIModelCostPerReq(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAIModelsCostPerReq(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def BuyAIModelReqPackage(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAIModelRequestCount(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_WalletServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -117,6 +161,26 @@ def add_WalletServicer_to_server(servicer, server):
                     servicer.GetTransactionsHistory,
                     request_deserializer=platform__management_dot_wallet__server__pb2.GetTransactionsHistoryRequest.FromString,
                     response_serializer=platform__management_dot_wallet__server__pb2.GetTransactionsHistoryResponse.SerializeToString,
+            ),
+            'SetAIModelCostPerReq': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetAIModelCostPerReq,
+                    request_deserializer=platform__management_dot_wallet__server__pb2.SetAIModelCostPerReqRequest.FromString,
+                    response_serializer=platform__management_dot_wallet__server__pb2.SetAIModelCostPerReqResponse.SerializeToString,
+            ),
+            'GetAIModelsCostPerReq': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAIModelsCostPerReq,
+                    request_deserializer=platform__management_dot_wallet__server__pb2.GetAIModelsCostPerReqRequest.FromString,
+                    response_serializer=platform__management_dot_wallet__server__pb2.GetAIModelsCostPerReqResponse.SerializeToString,
+            ),
+            'BuyAIModelReqPackage': grpc.unary_unary_rpc_method_handler(
+                    servicer.BuyAIModelReqPackage,
+                    request_deserializer=platform__management_dot_wallet__server__pb2.BuyAIModelReqPackageRequest.FromString,
+                    response_serializer=platform__management_dot_wallet__server__pb2.BuyAIModelReqPackageResponse.SerializeToString,
+            ),
+            'GetAIModelRequestCount': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAIModelRequestCount,
+                    request_deserializer=platform__management_dot_wallet__server__pb2.GetAIModelRequestCountRequest.FromString,
+                    response_serializer=platform__management_dot_wallet__server__pb2.GetAIModelRequestCountResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -227,5 +291,73 @@ class Wallet(object):
         return grpc.experimental.unary_unary(request, target, '/wallet_server.Wallet/GetTransactionsHistory',
             platform__management_dot_wallet__server__pb2.GetTransactionsHistoryRequest.SerializeToString,
             platform__management_dot_wallet__server__pb2.GetTransactionsHistoryResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetAIModelCostPerReq(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wallet_server.Wallet/SetAIModelCostPerReq',
+            platform__management_dot_wallet__server__pb2.SetAIModelCostPerReqRequest.SerializeToString,
+            platform__management_dot_wallet__server__pb2.SetAIModelCostPerReqResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAIModelsCostPerReq(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wallet_server.Wallet/GetAIModelsCostPerReq',
+            platform__management_dot_wallet__server__pb2.GetAIModelsCostPerReqRequest.SerializeToString,
+            platform__management_dot_wallet__server__pb2.GetAIModelsCostPerReqResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def BuyAIModelReqPackage(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wallet_server.Wallet/BuyAIModelReqPackage',
+            platform__management_dot_wallet__server__pb2.BuyAIModelReqPackageRequest.SerializeToString,
+            platform__management_dot_wallet__server__pb2.BuyAIModelReqPackageResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAIModelRequestCount(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wallet_server.Wallet/GetAIModelRequestCount',
+            platform__management_dot_wallet__server__pb2.GetAIModelRequestCountRequest.SerializeToString,
+            platform__management_dot_wallet__server__pb2.GetAIModelRequestCountResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
